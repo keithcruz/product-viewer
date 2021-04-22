@@ -11,6 +11,7 @@ services:
         - "3000:3000"
     volumes:
         - ./client:/usr/src/app
+        - /usr/src/app/node_modules
   backend:
       container_name: server
       build:
@@ -21,3 +22,4 @@ services:
           - "8080:8080"
       volumes:
           - ./server:/usr/src/app
+          - /usr/src/app/node_modules

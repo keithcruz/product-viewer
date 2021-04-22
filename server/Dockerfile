@@ -4,7 +4,9 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-EXPOSE 5000
+COPY package.json .
+RUN npm i
 
-# You can change this
+EXPOSE 8080
+
 CMD [ "npm", "run", "dev" ]

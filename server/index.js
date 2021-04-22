@@ -1,11 +1,14 @@
 "use strict";
 
 const express = require("express");
+const morgan = require("morgan");
 
 const PORT = 8080;
 const HOST = "0.0.0.0";
 
 const app = express();
+
+app.use(morgan("dev"));
 
 // set up the static files
 // app.use(express.static("assets"));
