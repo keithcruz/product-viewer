@@ -43,9 +43,10 @@ app.use(morgan("dev"));
 app.get("/api", (req, res) => {
   const stmt = db.prepare(`
     SELECT
+      users.realname,
       users.username,
-      group_concat(user_products.product) as product_ids,
-      group_concat(products.name) as product
+      group_concat(user_products.product) as productIds,
+      group_concat(products.name) as products
     FROM
       users
     LEFT JOIN
@@ -57,7 +58,7 @@ app.get("/api", (req, res) => {
   `);
   const data = stmt.all();
   console.log(data);
-  res.send();
+  res.status(200).json(data);
 });
 
 app.listen(PORT, HOST);

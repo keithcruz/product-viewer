@@ -20,7 +20,11 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": [
+      "jsx-a11y"
     ]
   },
   "browserslist": {
@@ -35,5 +39,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://backend:8080"
+  "proxy": "http://backend:8080",
+  "devDependencies": {
+    "eslint-plugin-jsx-a11y": "^6.4.1"
+  }
 }
