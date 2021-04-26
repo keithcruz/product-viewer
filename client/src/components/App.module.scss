@@ -1,0 +1,28 @@
+@import "../_variables";
+
+.app {
+  text-align: center;
+}
+
+.appHeader {
+  background-color: $primary;
+  min-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.appBody {
+  background-color: $primary;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: white;
+  padding: 0 10%;
+}
