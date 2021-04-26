@@ -3,7 +3,7 @@ const { db } = require("../db");
 
 const userRouter = Router();
 
-async function getUsers(req, res) {
+function getUsers(req, res) {
   try {
     const stmt = db.prepare(`
       SELECT
