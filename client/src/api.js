@@ -1,6 +1,6 @@
 async function getData() {
   try {
-    const data = await fetch("/api");
+    const data = await fetch("/api/users");
     if (!data.ok) {
       throw new Error(
         `Fetch failed with error:${data.statusText} ${data.status}`
@@ -14,4 +14,4 @@ async function getData() {
   }
 }
 
-export { getData };
+module.exports = { getData };
