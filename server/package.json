@@ -13,6 +13,7 @@
   "dependencies": {
     "better-sqlite3": "^7.1.5",
     "express": "^4.17.1",
+    "hal": "^1.2.0",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
