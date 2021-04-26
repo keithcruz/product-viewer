@@ -1,4 +1,4 @@
-async function getData(limit = 100, offset = 0) {
+async function getData(limit = 50, offset = 0) {
   try {
     const data = await fetch(`/api/users?limit=${limit}&offset=${offset}`);
     if (!data.ok) {
@@ -6,7 +6,9 @@ async function getData(limit = 100, offset = 0) {
         `Fetch failed with error:${data.statusText} ${data.status}`
       );
     }
-    const { users } = await data.json();
+
+    const json = await data.json();
+    const users = json._embedded.users;
     return users;
   } catch (err) {
     console.log(err);

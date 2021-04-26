@@ -1,6 +1,6 @@
 const { db } = require("../db");
 
-function get(limit = 100, offset = 0) {
+function get(limit = 50, offset = 0) {
   const stmt = db.prepare(`
       SELECT
         users.realname,
