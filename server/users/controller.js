@@ -1,13 +1,13 @@
 const hal = require("hal");
-const { get, getTotal } = require("./model");
+const model = require("./model");
 
 function getUsers(req, res) {
   try {
     const limit = parseInt(req.query.limit || 50);
     const offset = parseInt(req.query.offset || 0);
 
-    const users = get(limit, offset);
-    const { totalCount } = getTotal();
+    const users = model.getUsers(limit, offset);
+    const { totalCount } = model.getTotal();
     const count = users.length;
 
     const usersCollection = new hal.Resource(
@@ -61,4 +61,26 @@ function getUsers(req, res) {
   }
 }
 
-module.exports = { getUsers };
+function getUser(req, res) {
+  try {
+    const user = req.params.username;
+    const { realname, username, productIds, products } = model.getUser(user)[0];
+
+    const userResource = new hal.Resource(
+      {
+        realname,
+        username,
+        productIds,
+        products,
+      },
+      `/users/${user}`
+    );
+
+    res.status(200).json(userResource.toJSON());
+  } catch (err) {
+    console.log(err);
+    res.status(400).end();
+  }
+}
+
+module.exports = { getUsers, getUser };
