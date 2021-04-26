@@ -13,33 +13,6 @@ const app = express();
 
 app.use(morgan("dev"));
 
-// Test queries
-
-// SELECT
-// 	users.username , users.realname as name, user_products.product as product, products.name as product_name
-// FROM
-// 	users
-// LEFT JOIN
-// 	user_products ON users.username = user_products.user
-// INNER JOIN
-// 	products ON user_products.product = products.id
-
-// SELECT
-// 	users.username,
-// 	group_concat(user_products.product) as product_ids,
-// 	group_concat(products.name) as product
-// FROM
-// 	users
-// LEFT JOIN
-// 	user_products ON users.username = user_products.user
-// INNER JOIN
-// 	products ON user_products.product = products.id
-// GROUP BY
-// 	users.username
-
-// set up the static files
-// app.use(express.static("assets"));
-
 app.get("/api", (req, res) => {
   const stmt = db.prepare(`
     SELECT

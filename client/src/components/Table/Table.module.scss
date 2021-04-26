@@ -1,0 +1,58 @@
+@import "../../_variables";
+
+$border: darken($secondary, 2%);
+
+.dataTable {
+  border-spacing: 0;
+  border: 1px solid $border;
+
+  background-color: $secondary;
+
+  width: 100%;
+
+  tr:nth-child(odd) {
+    td {
+      background-color: lighten($secondary, 5%);
+    }
+  }
+
+  thead {
+    background-color: darken($secondary, 4%);
+  }
+
+  th, td {
+    text-align: left;
+    margin: 0;
+    padding: 0.5em;
+    border: 1px solid $border;
+  }
+}
+
+  @media (max-width: $mobile) {
+    .dataTable {
+
+      // display: block;
+
+      tr, td, tbody {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      td {
+        text-align: left;
+        border-style: none;
+
+        &:before {
+          content: attr(data-title);
+          color: lighten($secondary,35%);
+          text-transform: uppercase;
+          font-size: 1.2em;
+          padding-right: 10px;
+          display: block;
+        }
+      }
+    }
+  }

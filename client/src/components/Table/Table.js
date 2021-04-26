@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Row } from "../Row/Row";
+import { getData } from "../../api";
+import styles from "./Table.module.scss";
 
 function Table() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("/api")
-      .then((raw) => raw.json())
-      .then((json) => setData(json));
+    getData().then(setData);
   }, []);
 
   return (
-    <table>
+    <table className={styles.dataTable}>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Products</th>
+          <th>PIDs</th>
+        </tr>
+      </thead>
       <tbody>
         {data.map((item) => (
           <Row
