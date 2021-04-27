@@ -11,27 +11,32 @@ function Table() {
   }, []);
 
   return (
-    <table className={styles.dataTable}>
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Name</th>
-          <th>Products</th>
-          <th>PIDs</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item) => (
-          <Row
-            key={item.username}
-            username={item.username}
-            realname={item.realname}
-            productIds={item.productIds}
-            products={item.products}
-          />
-        ))}
-      </tbody>
-    </table>
+    <>
+      <div className={styles.dataTitle}>
+        <h2>User Product Data</h2>
+      </div>
+      <table className={styles.dataTable}>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Products</th>
+            <th>PIDs</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item) => (
+            <Row
+              key={item.username}
+              username={item.username}
+              realname={item.realname}
+              productIds={item.productIds}
+              products={item.products}
+            />
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 }
 
