@@ -18,7 +18,7 @@ project root run:
 9. Table display the user data and is responsive to sizing. (resize window < 580px)
 10. Pagination in the get /users api request.
 
-## Improvements
+## Things I would do... 
 In its current state the application is quite basic.  In hindsight, I would have used a ui/component framework to spend less time on styling and use that time to add features.  
 
 These are the things I'd add/change to make it more useable and pleasing:
